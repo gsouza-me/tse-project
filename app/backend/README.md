@@ -1,10 +1,10 @@
-# app
+# backend
 
 ## Setup
 
 1. Go to project folder
 
-> cd app
+> cd backend
 
 2. Install Dependencies
 

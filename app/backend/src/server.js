@@ -10,22 +10,11 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const helmet = require('helmet');
-
+const robot = require('./controllers/robots/robot')
 
 const logger = require('./util/logger');
 
-// Load .env Enviroment Variables to process.env
-
-require('mandatoryenv').load([
-    'DB_HOST',
-    'DB_DATABASE',
-    'DB_USER',
-    'DB_PASSWORD',
-    'PORT',
-    'SECRET'
-]);
-
-const { PORT } = process.env;
+const PORT = 3000 || process.env.PORT;
 
 
 // Instantiate an Express Application
@@ -69,3 +58,4 @@ app.listen(
     PORT,
     () => console.info('Server listening on port ', PORT)
 );
+robot.init();
