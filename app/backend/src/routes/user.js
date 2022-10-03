@@ -1,20 +1,14 @@
 const express = require('express');
+const tse = require('../controllers/robots/robot')
 const router = express.Router();
 
 
-const user = require('../controllers/user.js');
+//const user = require('../controllers/user.js');
 
-
-
-router.get('/api/users/:id', user.getUserById);
-
-router.get('/api/users', user.getUsers);
-
-router.post('/api/users', user.newUser);
-
-router.delete('/users/:id', user.deleteUser);
-
-router.put('/api/users', user.updateUser);
-
+router.get('/api/data', (req, res) => {
+    const response = tse.init();
+    console.log(JSON.stringify(response))
+    res.json(response);
+})
 
 module.exports = router;
