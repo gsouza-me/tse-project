@@ -13,8 +13,7 @@ module.exports = class Tse {
         try {
             const req = await Axios(link);
             const data = req?.data
-            console.log(`TSE::once -> ${data}`)
-            return data; 
+            return data
         } catch (err){
             console.trace(err);
         }
@@ -22,6 +21,7 @@ module.exports = class Tse {
 
     static async init (){
         const link = config.host_ + config.uri_ 
-        this.once(link);
+        const res = await this.once(link);
+        return res
     }
 }

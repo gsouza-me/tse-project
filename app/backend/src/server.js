@@ -10,9 +10,8 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const helmet = require('helmet');
-const robot = require('./controllers/robots/robot')
-
 const logger = require('./util/logger');
+const Robot = require('./controllers/robots/robot');
 
 const PORT = 3000 || process.env.PORT;
 
@@ -55,7 +54,6 @@ app.use('*', (req, res) => {
 
 // Open Server on selected Port
 app.listen(
-    PORT,
-    () => console.info('Server listening on port ', PORT)
+    PORT, () => Robot.init() 
 );
-robot.init();
+
