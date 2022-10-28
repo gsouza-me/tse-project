@@ -12,7 +12,7 @@ module.exports = class Tse {
     static async once(link){
         try {
             const req = await Axios(link);
-            const data = req?.data
+            const data = req?.data.cand
             return data
         } catch (err){
             console.trace(err);
